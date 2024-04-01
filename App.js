@@ -1,20 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { Text, TextInput, View } from 'react-native';
+import CardVaga from 'C:\Users\gabri\OneDrive\Área de Trabalho\trabalhoReactNative\speedVaga\components\CardVaga.js';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View>
+      <CardVaga tituloDaVaga="Tecnico de informatica" nomeDaEmpresa="TI do Juliao"></CardVaga>
     </View>
   );
+  
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

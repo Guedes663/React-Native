@@ -1,15 +1,17 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
 
 function CardVaga(props) {
 
     return (
         <>
-            <View style={styles.container}>
-                <Image source={props.imagem} style={styles.imagem} />
-                <Text style={styles.tituloDaVaga}>{props.tituloDaVaga}</Text>
-                <Text style={styles.nomeDaEmpresa}>{props.nomeDaEmpresa}</Text>
-            </View>
+            <Pressable onPress={props.onPress}>
+                <View style={styles.container}>
+                    <Image style={styles.imagem} source={props.imagem} />
+                    <Text style={styles.tituloDaVaga}>{props.tituloDaVaga}</Text>
+                    <Text style={styles.nomeDaEmpresa}>{props.nomeDaEmpresa}</Text>
+                </View>
+            </Pressable>
         </>
     );
 }
@@ -17,25 +19,28 @@ function CardVaga(props) {
 const styles = StyleSheet.create({
     container: {
         marginBottom: '10%',
-        width: '80%',
+        //width: '80%',
         borderStyle: 'solid',
         borderColor: 'black',
-        borderWidth: 2,
-        alignItems: 'flex-start',
-        backgroundColor: 'black',
-        overflow: 'visible', // Permite que a sombra seja desenhada fora do container
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 12,
-        },
-        shadowOpacity: 0.58,
-        shadowRadius: 16.00,
-        elevation: 24
+        //borderWidth: 5,
+        borderRadius: 10,
+        //alignItems: 'flex-start',
+        backgroundColor: '#433F8C',
+        overflow: 'hidden', // Permite que a sombra seja desenhada fora do container
+        //shadowColor: "#000",
+        //shadowOffset: {
+        //    width: 0,
+        //    height: 12,
+        //},
+        //shadowOpacity: 0.58,
+        //shadowRadius: 16.00,
+        elevation: 10
     },
     imagem: {
         width: '100%',
-        height: 200
+        height: 200,
+        //borderTopLeftRadius: 10,
+        //borderTopRightRadius: 10
     },
     tituloDaVaga: {
         fontSize: 20,

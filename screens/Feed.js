@@ -1,30 +1,42 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
-import CardVaga from './components/CardVaga.js';
+import { View, StyleSheet, FlatList } from 'react-native';
+import CardVaga from '../components/CardVaga.js';
+import { useNavigation } from '@react-navigation/native';
+import { dados } from '../data/dados.js';
 
-export default function Feed() {
+function Feed() {
+
+  const navigation = useNavigation();
+
+  const irParaTelaDetalheVaga = (dadosVaga) => {
+    navigation.navigate('DetalhesDaVaga', { dadosVaga } );
+  }; 
 
   return (
     <>
-      <ScrollView style={styles.container}>
-        <View style={styles.container2}>
-          <CardVaga imagem={require('./assets/cloudgenius.png')} tituloDaVaga='Desenvolvedor full-stack' nomeDaEmpresa='- Guedes' />
-          <CardVaga imagem={require('./assets/databrain.png')} tituloDaVaga='Desenvolvedor full-stack' nomeDaEmpresa='- Guedes' />
-          <CardVaga imagem={require('./assets/datainsight.png')} tituloDaVaga='Desenvolvedor full-stack' nomeDaEmpresa='- Guedes' />
-          <CardVaga imagem={require('./assets/digitalmarketing.png')} tituloDaVaga='Desenvolvedor full-stack' nomeDaEmpresa='- Guedes' />
-        </View>
-      </ScrollView>
+      <View style={styles.container}>
+        <FlatList data={dados} keyExtractor={(item) => item.key}
+          renderItem={({ item }) => {
+            return (
+              <CardVaga
+                onPress={() => irParaTelaDetalheVaga(item)}
+                imagem={item.imagem}
+                tituloDaVaga={item.tituloDaVaga}
+                nomeDaEmpresa={item.nomeDaEmpresa}
+              />
+            );
+          }} />
+      </View>
     </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: '10%',
-    backgroundColor: '#433F8C',
+    backgroundColor: 'white',
+    //flex: 1,
+    padding: 16
   },
-  container2: {
-    alignItems: 'center',
-    paddingBottom: '10%'
-  }
 });
+
+export default Feed;

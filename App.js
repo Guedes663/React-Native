@@ -1,42 +1,29 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView, Image, Text } from 'react-native';
-import CardVaga from './components/CardVaga.js';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import Feed from './screens/Feed.js';
+import DetalheVaga from './screens/DetalheVagas.js';
+import DetalheEmpresa from './screens/DetalheEmpresa.js';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
 
   return (
-    <>
-      <ScrollView>
-        <View style={styles.container}>
-          <Image source={require('./assets/cloudgenius.png')} style={styles.imagem} />
-          <Text>Titulo da Vaga</Text>
-
-          <Image source={require('./assets/databrain.png')} style={styles.imagem2} />
-          <Text>Nome da empresa</Text>
-
-          <Text>Requisito</Text>
-          <Text>TEXTO TEXTO TEXTO TEXTO</Text>
-          <Text>Diferenciais</Text>
-          <Text>TEXTO TEXTO TEXTO TEXTO</Text>
-        </View>
-      </ScrollView>
-    </>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{
+        headerStyle: {
+          backgroundColor: '#433F8C',
+        },
+        headerTintColor: '#F6F6F6',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}>
+        <Stack.Screen name='Feed' component={Feed} />
+        <Stack.Screen name='DetalhesDaVaga' component={DetalheVaga} />
+        <Stack.Screen name='DetalhesDaEmpresa' component={DetalheEmpresa} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: '10%',
-    backgroundColor: '#433F8C',
-    alignItems: 'center',
-    height: 1000,
-  },
-  imagem: {
-    width: '85%',
-    height: 200,
-  },
-  imagem2: {
-    width: '85%',
-    height: 200,
-  },
-});

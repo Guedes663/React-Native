@@ -1,12 +1,12 @@
 import React from 'react';
 import { View } from 'react-native';
 
-function Vagas() {
+function DetalheEmpresa() {
     return (
         <View>
-            
+
         </View>
     );
 }
 
-export default Vagas;
+export default DetalheEmpresa;

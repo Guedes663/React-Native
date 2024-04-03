@@ -52,6 +52,6 @@ Siga os passos abaixo para executar o projeto em seu ambiente local:
 - [Victor Dala](https://github.com/Victordplima)
 - [Sávio Carlos](https://github.com/SavioCarlos)
 - [Vanessa Bicario](https://github.com/VanessaBicarioMassi)
-- [Júlio Cesar](https://github.com/juliocesarmlk)
+- [Júlio César](https://github.com/juliocesarmlk)
 - [Davi Bertoni](https://github.com/DaviBertoni)
 - [Otávio Barros](https://github.com/otaviotiltado45)
